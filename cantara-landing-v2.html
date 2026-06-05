@@ -360,7 +360,7 @@ footer .phone{color:var(--txt);font-family:'Cairo';font-weight:800;font-size:18p
       <img src="hero-photo.png" alt="داخلية سيارة مكسوة بالكنتارا الأسود" style="width:100%;height:100%;object-fit:cover;">
     </div>
 
-    <a href="javascript:void(0)" class="hero-cta" onclick="submitOrder()" style="text-decoration:none;color:#fff;display:block;">
+    <a href="javascript:void(0)" class="hero-cta" onclick="submitOrderV2()" style="text-decoration:none;color:#fff;display:block;">
       اطلب الآن — الدفع عند الاستلام
       <small>اختر سيارتك ↓ والقطع التي تريدها</small>
     </a>
@@ -466,58 +466,37 @@ footer .phone{color:var(--txt);font-family:'Cairo';font-weight:800;font-size:18p
     </div>
   </section>
 
-  <!-- ORDER BUILDER -->
+  <!-- ORDER BUILDER V2 -->
   <section class="builder reveal" id="order">
     <div class="eyebrow">اطلب الآن</div>
-    <h2 class="sec-title">صمّم طلبك في دقيقة</h2>
-    <p class="sec-desc">اختر سيارتك، القطع التي تريد كسوتها، اللون، ثم أكمل معلومات التوصيل.</p>
+    <h2 class="sec-title">اختر المقاس واللون — نوصلك لباب الدار</h2>
+    <p class="sec-desc">كنتارا مقطوع مسبقًا بقياسات محددة — تقص وتلصق بنفسك في دقائق.</p>
 
     <div class="form-card">
-      <!-- step 1 car -->
-      <div class="step-label"><span class="step-num">1</span> اختر سيارتك</div>
-      <select id="car" onchange="recalc()">
-        <option value="">— اختر الموديل —</option>
-        <option value="Golf 8">Volkswagen Golf 8</option>
-        <option value="Golf 7">Volkswagen Golf 7</option>
-        <option value="Golf 6">Volkswagen Golf 6</option>
-        <option value="Polo">Volkswagen Polo</option>
-        <option value="Passat">Volkswagen Passat</option>
-        <option value="Seat Leon">Seat Leon</option>
-        <option value="Seat Ibiza">Seat Ibiza</option>
-        <option value="Skoda Octavia">Skoda Octavia</option>
-        <option value="Skoda Superb">Skoda Superb</option>
-        <option value="Audi A3">Audi A3</option>
-        <option value="Clio">Renault Clio</option>
-        <option value="Megane">Renault Megane</option>
-        <option value="Symbol">Renault Symbol</option>
-        <option value="208">Peugeot 208</option>
-        <option value="301">Peugeot 301</option>
-        <option value="autre">سيارة أخرى</option>
-      </select>
-      <input type="text" id="carother" placeholder="أو اكتب موديل سيارتك هنا إن لم تجده (مثال: Hyundai Elantra 2023)" style="margin-top:10px;" />
-
-      <!-- step 2 parts -->
-      <div class="step-label"><span class="step-num">2</span> اختر القطع المطلوبة</div>
-      <div class="parts" id="parts">
-        <label class="part"><span class="tick">✓</span><input type="checkbox" data-name="الطابلو" data-price="4500" onchange="togglePart(this)"><div class="pc-ic">📋</div><div class="pc-nm">الطابلو</div><div class="pc-pr">4500 دج</div></label>
-        <label class="part"><span class="tick">✓</span><input type="checkbox" data-name="الأبواب" data-price="3500" onchange="togglePart(this)"><div class="pc-ic">🚪</div><div class="pc-nm">الأبواب</div><div class="pc-pr">3500 دج</div></label>
-        <label class="part"><span class="tick">✓</span><input type="checkbox" data-name="عجلة القيادة" data-price="2500" onchange="togglePart(this)"><div class="pc-ic">🎡</div><div class="pc-nm">عجلة القيادة</div><div class="pc-pr">2500 دج</div></label>
-        <label class="part"><span class="tick">✓</span><input type="checkbox" data-name="الكونسول الأوسط" data-price="2000" onchange="togglePart(this)"><div class="pc-ic">🎛️</div><div class="pc-nm">الكونسول</div><div class="pc-pr">2000 دج</div></label>
-        <label class="part"><span class="tick">✓</span><input type="checkbox" data-name="القوائم (Pillars)" data-price="3000" onchange="togglePart(this)"><div class="pc-ic">🏛️</div><div class="pc-nm">القوائم</div><div class="pc-pr">3000 دج</div></label>
-        <label class="part"><span class="tick">✓</span><input type="checkbox" data-name="السقف (Plafond)" data-price="6000" onchange="togglePart(this)"><div class="pc-ic">⬆️</div><div class="pc-nm">السقف</div><div class="pc-pr">6000 دج</div></label>
-        <label class="part"><span class="tick">✓</span><input type="checkbox" data-name="مقابض ناقل السرعة" data-price="1500" onchange="togglePart(this)"><div class="pc-ic">🕹️</div><div class="pc-nm">ناقل السرعة</div><div class="pc-pr">1500 دج</div></label>
-        <label class="part"><span class="tick">✓</span><input type="checkbox" data-name="كسوة المقاعد" data-price="8000" onchange="togglePart(this)"><div class="pc-ic">💺</div><div class="pc-nm">المقاعد</div><div class="pc-pr">8000 دج</div></label>
+      <!-- step 1 size -->
+      <div class="step-label"><span class="step-num">1</span> اختر المقاس</div>
+      <div class="parts" id="sizes">
+        <label class="part on" id="s50x100"><span class="tick">✓</span><input type="radio" name="size" value="100x50" data-price="3000" checked onchange="recalcV2()"><div class="pc-ic">📐</div><div class="pc-nm">50×100 سم</div><div class="pc-pr">3000 دج</div></label>
+        <label class="part" id="s50x50"><span class="tick">✓</span><input type="radio" name="size" value="50x50" data-price="2500" onchange="recalcV2()"><div class="pc-ic">📐</div><div class="pc-nm">50×50 سم</div><div class="pc-pr">2500 دج</div></label>
+        <label class="part" id="s50x200"><span class="tick">✓</span><input type="radio" name="size" value="200x50" data-price="3800" onchange="recalcV2()"><div class="pc-ic">📐</div><div class="pc-nm">50×200 سم</div><div class="pc-pr">3800 دج</div></label>
       </div>
 
-      <!-- step 3 color -->
-      <div class="step-label"><span class="step-num">3</span> اختر اللون</div>
+      <!-- step 2 color -->
+      <div class="step-label"><span class="step-num">2</span> اختر اللون</div>
       <div class="cpick">
-        <label><input type="radio" name="color" value="أسود" checked onchange="recalc()"><div class="dot c-black"></div><div class="cl">أسود</div></label>
-        <label><input type="radio" name="color" value="رمادي" onchange="recalc()"><div class="dot c-gray"></div><div class="cl">رمادي</div></label>
-        <label><input type="radio" name="color" value="بيج" onchange="recalc()"><div class="dot c-beige"></div><div class="cl">بيج</div></label>
-        <label><input type="radio" name="color" value="أحمر" onchange="recalc()"><div class="dot c-red"></div><div class="cl">أحمر</div></label>
-        <label><input type="radio" name="color" value="بني" onchange="recalc()"><div class="dot c-brown"></div><div class="cl">بني</div></label>
-        <label><input type="radio" name="color" value="أزرق" onchange="recalc()"><div class="dot c-blue"></div><div class="cl">أزرق</div></label>
+        <label><input type="radio" name="color" value="أسود" checked onchange="recalcV2()"><div class="dot c-black"></div><div class="cl">أسود</div></label>
+        <label><input type="radio" name="color" value="رمادي" onchange="recalcV2()"><div class="dot c-gray"></div><div class="cl">رمادي</div></label>
+        <label><input type="radio" name="color" value="بيج" onchange="recalcV2()"><div class="dot c-beige"></div><div class="cl">بيج</div></label>
+        <label><input type="radio" name="color" value="أحمر" onchange="recalcV2()"><div class="dot c-red"></div><div class="cl">أحمر</div></label>
+        <label><input type="radio" name="color" value="بني" onchange="recalcV2()"><div class="dot c-brown"></div><div class="cl">بني</div></label>
+        <label><input type="radio" name="color" value="أزرق" onchange="recalcV2()"><div class="dot c-blue"></div><div class="cl">أزرق</div></label>
+      </div>
+
+      <!-- step 3 qty -->
+      <div class="step-label"><span class="step-num">3</span> الكمية</div>
+      <div class="row2">
+        <input type="number" id="qty" value="1" min="1" onchange="recalcV2()" />
+        <div style="display:flex;align-items:center;font-family:'Cairo';font-weight:700;font-size:15px;color:var(--gold-soft);padding-right:10px;">قطعة (قطع)</div>
       </div>
 
       <!-- step 4 info -->
@@ -530,22 +509,22 @@ footer .phone{color:var(--txt);font-family:'Cairo';font-weight:800;font-size:18p
         </select>
         <input type="text" id="commune" placeholder="البلدية">
       </div>
-      <select id="delivery" onchange="recalc()" style="margin-bottom:10px;">
+      <select id="delivery" onchange="recalcV2()" style="margin-bottom:10px;">
         <option value="bureau" data-fee="500">التوصيل إلى المكتب (500 دج)</option>
         <option value="domicile" data-fee="800">التوصيل إلى المنزل (800 دج)</option>
       </select>
-      <textarea id="notes" rows="2" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+      <textarea id="notes" rows="2" placeholder="ملاحظات (اختياري)"></textarea>
 
       <!-- summary -->
       <div class="summary">
-        <div class="ln"><span>السيارة</span><span id="s-car">—</span></div>
-        <div class="ln"><span>القطع</span><span id="s-parts">—</span></div>
+        <div class="ln"><span>المقاس</span><span id="s-size">50×100 سم</span></div>
         <div class="ln"><span>اللون</span><span id="s-color">أسود</span></div>
+        <div class="ln"><span>العدد</span><span id="s-qty">1</span></div>
         <div class="ln"><span>التوصيل</span><span id="s-deliv">500 دج</span></div>
-        <div class="total"><span>المجموع</span><span class="amt" id="s-total">0 دج</span></div>
+        <div class="total"><span>المجموع</span><span class="amt" id="s-total">3,500 دج</span></div>
       </div>
 
-      <button class="submit" onclick="submitOrder()">✅ تأكيد الطلب — الدفع عند الاستلام</button>
+      <button class="submit" onclick="submitOrderV2()">✅ تأكيد الطلب — الدفع عند الاستلام</button>
       <p class="formnote">🔒 معلوماتك آمنة — لا تدفع شيئًا حتى تستلم وتعاين المنتج.</p>
     </div>
   </section>
@@ -607,7 +586,7 @@ footer .phone{color:var(--txt);font-family:'Cairo';font-weight:800;font-size:18p
   <!-- sticky -->
   <div class="sticky">
     <div class="pr">يبدأ من<br>1500 دج</div>
-    <a href="javascript:void(0)" onclick="submitOrder();return false;">اطلب الآن 🛒</a>
+    <a href="javascript:void(0)" onclick="submitOrderV2();return false;">اطلب الآن 🛒</a>
   </div>
 
 </div>
@@ -615,106 +594,65 @@ footer .phone{color:var(--txt);font-family:'Cairo';font-weight:800;font-size:18p
 <div class="toast" id="toast"></div>
 
 <script>
-// ============================================================
-// 🔧 GOOGLE SHEETS CONFIGURATION
-// ============================================================
 var SHEETS_URL = "https://script.google.com/macros/s/AKfycbzfNfMPNPyVI899U0PeI-x3u1yglSu3Z92cCHDcbQ7-cgAfSwxGvt4Jo-gis-5LYauj9w/exec";
-// ============================================================
 
-// wilayas
 var WILAYAS=["أدرار","الشلف","الأغواط","أم البواقي","باتنة","بجاية","بسكرة","بشار","البليدة","البويرة","تمنراست","تبسة","تلمسان","تيارت","تيزي وزو","الجزائر","الجلفة","جيجل","سطيف","سعيدة","سكيكدة","سيدي بلعباس","عنابة","قالمة","قسنطينة","المدية","مستغانم","المسيلة","معسكر","ورقلة","وهران","البيض","إليزي","برج بوعريريج","بومرداس","الطارف","تندوف","تيسمسيلت","الوادي","خنشلة","سوق أهراس","تيبازة","ميلة","عين الدفلى","النعامة","عين تموشنت","غرداية","غليزان","تيميمون","برج باجي مختار","أولاد جلال","بني عباس","عين صالح","عين قزام","تقرت","جانت","المغير","المنيعة"];
-var sel=document.getElementById('wilaya');
-WILAYAS.forEach(function(w){var o=document.createElement('option');o.value=w;o.textContent=w;sel.appendChild(o);});
+WILAYAS.forEach(function(w){var o=document.createElement('option');o.value=w;o.textContent=w;document.getElementById('wilaya').appendChild(o);});
 
-function getCarName(){
-  var sel=document.getElementById('car');
-  var other=document.getElementById('carother').value.trim();
-  if(sel.value==='autre') return other||'سيارة أخرى';
-  if(sel.value) return sel.options[sel.selectedIndex].text;
-  return other||'';
-}
-
-function togglePart(cb){ cb.closest('.part').classList.toggle('on',cb.checked); recalc(); }
-
-function getParts(){
-  return Array.prototype.slice.call(document.querySelectorAll('#parts input:checked'));
-}
-
-function recalc(){
-  var parts=getParts();
-  var sum=0, names=[];
-  parts.forEach(function(p){sum+=parseInt(p.dataset.price);names.push(p.dataset.name);});
+function recalcV2(){
+  var size=document.querySelector('input[name=size]:checked');
+  var price=size?parseInt(size.dataset.price):0;
+  var qty=parseInt(document.getElementById('qty').value)||1;
   var deliv=document.getElementById('delivery');
   var fee=parseInt(deliv.options[deliv.selectedIndex].dataset.fee);
-  var car=document.getElementById('car').value;
   var color=document.querySelector('input[name=color]:checked').value;
-
-  document.getElementById('s-car').textContent = getCarName()||'—';
-  document.getElementById('s-parts').textContent = names.length ? names.length+' قطع' : '—';
-  document.getElementById('s-color').textContent = color;
-  document.getElementById('s-deliv').textContent = fee+' دج';
-  var total = parts.length ? sum+fee : 0;
-  document.getElementById('s-total').textContent = total.toLocaleString('en-US')+' دج';
+  var total=price*qty+fee;
+  document.getElementById('s-size').textContent=size?size.parentElement.querySelector('.pc-nm').textContent:'—';
+  document.getElementById('s-color').textContent=color;
+  document.getElementById('s-qty').textContent=qty;
+  document.getElementById('s-deliv').textContent=fee+' دج';
+  document.getElementById('s-total').textContent=total.toLocaleString('en-US')+' دج';
 }
-document.getElementById('carother').addEventListener('input',recalc);
 
 function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},3200);}
 
-function scrollToOrder(){document.getElementById('order').scrollIntoView({behavior:'smooth'});}
-
-function submitOrder(){
+function submitOrderV2(){
   var name=document.getElementById('name').value.trim();
   var phone=document.getElementById('phone').value.trim();
   var wilaya=document.getElementById('wilaya').value;
   var commune=document.getElementById('commune').value.trim();
-  var car=getCarName();
-  var parts=getParts().map(function(p){return p.dataset.name;}).join(', ')||'—';
+  var size=document.querySelector('input[name=size]:checked');
+  var sizeLabel=size?size.parentElement.querySelector('.pc-nm').textContent:'';
   var color=document.querySelector('input[name=color]:checked').value;
+  var qty=document.getElementById('qty').value||'1';
   var deliv=document.getElementById('delivery');
   var delivery=deliv.options[deliv.selectedIndex].text;
   var total=document.getElementById('s-total').textContent;
   var notes=document.getElementById('notes').value.trim();
-
   if(!name||!phone||!wilaya){toast('❌ يرجى ملء الاسم والهاتف والولاية');return;}
-
   var btn=document.querySelector('.submit');
   btn.textContent='⏳ جاري الإرسال…';btn.disabled=true;
-
-  var body=new URLSearchParams({
+  fetch(SHEETS_URL,{method:'POST',body:new URLSearchParams({
     name:name,phone:phone,wilaya:wilaya,commune:commune,
-    car:car,parts:parts,color:color,delivery:delivery,
-    total:total,notes:notes
-  });
-
-  fetch(SHEETS_URL,{method:'POST',body:body})
-    .then(function(r){return r.json();})
-    .then(function(d){
-      if(d.ok){
-        toast('✅ تم إرسال الطلب بنجاح! سنتصل بك قريبًا.');
-        document.getElementById('name').value='';
-        document.getElementById('phone').value='';
-        document.getElementById('commune').value='';
-        document.getElementById('carother').value='';
-
-        document.getElementById('notes').value='';
-        document.getElementById('car').value='';
-        document.querySelectorAll('#parts input').forEach(function(c){c.checked=false;c.closest('.part').classList.remove('on');});
-        document.querySelector('input[name=color][value=أسود]').checked=true;
-        document.getElementById('delivery').selectedIndex=0;
-        recalc();
-        setTimeout(function(){document.getElementById('order').scrollIntoView({behavior:'smooth'});},400);
-      }else{
-        toast('❌ '+(d.error||'حدث خطأ، حاول مرة أخرى'));
-      }
-    })
-    .catch(function(){toast('❌ تعذر الاتصال، تحقق من الإنترنت');})
-    .finally(function(){btn.textContent='✅ تأكيد الطلب — الدفع عند الاستلام';btn.disabled=false;});
+    car:'مقصّ '+sizeLabel,parts:color+' - '+qty+' قطعة',color:color,
+    delivery:delivery,total:total,notes:notes
+  })}).then(function(r){return r.json();}).then(function(d){
+    if(d.ok){toast('✅ تم إرسال الطلب بنجاح! سنتصل بك قريبًا.');
+      document.getElementById('name').value='';document.getElementById('phone').value='';
+      document.getElementById('commune').value='';document.getElementById('notes').value='';
+      document.getElementById('qty').value='1';document.getElementById('delivery').selectedIndex=0;
+      document.querySelector('input[name=size][value="100x50"]').checked=true;
+      document.querySelector('input[name=color][value=أسود]').checked=true;
+      recalcV2();}else{toast('❌ '+(d.error||'حدث خطأ'));}
+  }).catch(function(){toast('❌ تعذر الاتصال');})
+  .finally(function(){btn.textContent='✅ تأكيد الطلب — الدفع عند الاستلام';btn.disabled=false;});
 }
 
-// reveal on scroll
+document.querySelectorAll('input[name=size]').forEach(function(r){r.addEventListener('change',function(){document.querySelectorAll('#sizes .part').forEach(function(p){p.classList.toggle('on',p.querySelector('input').checked);});recalcV2();});});
+
 var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
-recalc();
+recalcV2();
 </script>
 </body>
 </html>
