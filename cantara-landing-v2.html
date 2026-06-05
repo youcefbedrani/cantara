@@ -360,7 +360,7 @@ footer .phone{color:var(--txt);font-family:'Cairo';font-weight:800;font-size:18p
       <img src="hero-photo.png" alt="داخلية سيارة مكسوة بالكنتارا الأسود" style="width:100%;height:100%;object-fit:cover;">
     </div>
 
-    <a href="javascript:void(0)" class="hero-cta" onclick="submitOrderV2()" style="text-decoration:none;color:#fff;display:block;">
+    <a href="javascript:void(0)" class="hero-cta" onclick="scrollToOrder()" style="text-decoration:none;color:#fff;display:block;">
       اطلب الآن — الدفع عند الاستلام
       <small>اختر سيارتك ↓ والقطع التي تريدها</small>
     </a>
@@ -465,7 +465,6 @@ footer .phone{color:var(--txt);font-family:'Cairo';font-weight:800;font-size:18p
       <img src="12.png" alt="معرض 8" style="border-radius:12px;border:1px solid var(--line);width:100%;aspect-ratio:1/1;object-fit:cover;">
     </div>
   </section>
-
   <!-- ORDER BUILDER V2 -->
   <section class="builder reveal" id="order">
     <div class="eyebrow">اطلب الآن</div>
@@ -529,6 +528,66 @@ footer .phone{color:var(--txt);font-family:'Cairo';font-weight:800;font-size:18p
     </div>
   </section>
 
+
+  <!-- BENEFITS -->
+  <section class="reveal">
+    <div class="eyebrow">لماذا الكنتارا؟</div>
+    <h2 class="sec-title">مميزات تخلّيك تطلب اليوم</h2>
+    <div class="benefits">
+      <div class="benefit">
+        <div class="ic">👑</div>
+        <div><h3>مظهر فاخر فوري</h3><p>نفس الخامة المستعملة في سيارات الفخامة والرياضية مثل AMG و GTI و Cupra.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="ic">✋</div>
+        <div><h3>ملمس ناعم ومريح</h3><p>إحساس راقٍ تحت اليد، مع قبضة أفضل على عجلة القيادة.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="ic">🛡️</div>
+        <div><h3>يحمي ويغطّي العيوب</h3><p>يخفي الخدوش والبلاستيك الباهت ويعطي داخلية كأنها جديدة.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="ic">🎨</div>
+        <div><h3>ألوان متعددة</h3><p>أسود، رمادي، بيج، أحمر، بني وأزرق — تختار ما يناسب ذوقك.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLORS -->
+  <section class="colors-wrap reveal">
+    <div class="eyebrow">الألوان المتوفرة</div>
+    <h2 class="sec-title">اختر لونك المفضل</h2>
+    <p class="sec-desc">كل الألوان متوفرة بنفس الجودة العالية للكنتارا.</p>
+    <div style="margin-bottom:18px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);">
+      <img src="type.png" alt="خامة الكنتارا" style="width:100%;display:block;">
+    </div>
+    <div class="color-grid">
+      <div class="swatch"><div class="chip c-black"></div><div class="nm">أسود</div><div class="fr">Noir</div></div>
+      <div class="swatch"><div class="chip c-gray"></div><div class="nm">رمادي</div><div class="fr">Gris</div></div>
+      <div class="swatch"><div class="chip c-beige"></div><div class="nm">بيج</div><div class="fr">Beige</div></div>
+      <div class="swatch"><div class="chip c-red"></div><div class="nm">أحمر</div><div class="fr">Rouge</div></div>
+      <div class="swatch"><div class="chip c-brown"></div><div class="nm">بني</div><div class="fr">Marron</div></div>
+      <div class="swatch"><div class="chip c-blue"></div><div class="nm">أزرق</div><div class="fr">Bleu</div></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="reveal" style="background:var(--bg-soft);">
+    <div class="eyebrow">معرض الصور</div>
+    <h2 class="sec-title">شاهد أعمالنا</h2>
+    <p class="sec-desc">نماذج حقيقية لسيارات زبائننا قبل وبعد التركيب.</p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+      <img src="5.png" alt="معرض 1" style="border-radius:12px;border:1px solid var(--line);width:100%;aspect-ratio:1/1;object-fit:cover;">
+      <img src="6.png" alt="معرض 2" style="border-radius:12px;border:1px solid var(--line);width:100%;aspect-ratio:1/1;object-fit:cover;">
+      <img src="7.png" alt="معرض 3" style="border-radius:12px;border:1px solid var(--line);width:100%;aspect-ratio:1/1;object-fit:cover;">
+      <img src="8.png" alt="معرض 4" style="border-radius:12px;border:1px solid var(--line);width:100%;aspect-ratio:1/1;object-fit:cover;">
+      <img src="9.png" alt="معرض 5" style="border-radius:12px;border:1px solid var(--line);width:100%;aspect-ratio:1/1;object-fit:cover;">
+      <img src="10.png" alt="معرض 6" style="border-radius:12px;border:1px solid var(--line);width:100%;aspect-ratio:1/1;object-fit:cover;">
+      <img src="11.png" alt="معرض 7" style="border-radius:12px;border:1px solid var(--line);width:100%;aspect-ratio:1/1;object-fit:cover;">
+      <img src="12.png" alt="معرض 8" style="border-radius:12px;border:1px solid var(--line);width:100%;aspect-ratio:1/1;object-fit:cover;">
+    </div>
+  </section>
+
   <!-- HOW -->
   <section class="how reveal">
     <div class="eyebrow">كيف يتم الأمر</div>
@@ -586,7 +645,7 @@ footer .phone{color:var(--txt);font-family:'Cairo';font-weight:800;font-size:18p
   <!-- sticky -->
   <div class="sticky">
     <div class="pr">يبدأ من<br>1500 دج</div>
-    <a href="javascript:void(0)" onclick="submitOrderV2();return false;">اطلب الآن 🛒</a>
+    <a href="javascript:void(0)" onclick="scrollToOrder();return false;">اطلب الآن 🛒</a>
   </div>
 
 </div>
@@ -614,6 +673,7 @@ function recalcV2(){
   document.getElementById('s-total').textContent=total.toLocaleString('en-US')+' دج';
 }
 
+function scrollToOrder(){document.getElementById('order').scrollIntoView({behavior:'smooth'});}
 function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},3200);}
 
 function submitOrderV2(){
