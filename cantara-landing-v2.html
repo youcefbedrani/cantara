@@ -271,10 +271,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 }
 .cpick input:checked + .dot{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,160,74,.3);transform:scale(1.06);}
 .cpick .cl{font-size:10.5px;color:var(--txt-dim);margin-top:3px;font-family:'Cairo';font-weight:600;}
-.cpick .oos{pointer-events:none;position:relative;}
-.cpick .oos .dot{opacity:.3;filter:grayscale(.8);}
-.cpick .oos .dot::after{content:"✕";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:var(--red);}
-.cpick .oos .cl{text-decoration:line-through;color:var(--red);font-size:9px;}
+
 
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 
@@ -449,11 +446,7 @@ footer .phone{color:var(--txt);font-family:'Cairo';font-weight:800;font-size:18p
       <div class="step-label"><span class="step-num">2</span> اختر اللون</div>
       <div class="cpick">
         <label><input type="radio" name="color" value="أسود" checked onchange="recalcV2()"><div class="dot c-black"></div><div class="cl">أسود</div></label>
-        <label class="oos"><input type="radio" name="color" value="رمادي" disabled><div class="dot c-gray"></div><div class="cl">رمادي</div></label>
-        <label class="oos"><input type="radio" name="color" value="بيج" disabled><div class="dot c-beige"></div><div class="cl">بيج</div></label>
         <label><input type="radio" name="color" value="أحمر" onchange="recalcV2()"><div class="dot c-red"></div><div class="cl">أحمر</div></label>
-        <label class="oos"><input type="radio" name="color" value="بني" disabled><div class="dot c-brown"></div><div class="cl">بني</div></label>
-        <label class="oos"><input type="radio" name="color" value="أزرق" disabled><div class="dot c-blue"></div><div class="cl">أزرق</div></label>
       </div>
 
       <!-- step 3 qty -->
