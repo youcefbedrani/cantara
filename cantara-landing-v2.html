@@ -10,6 +10,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1505379221074156');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1505379221074156&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <style>
 :root{
   --bg:#0a0a0c;
@@ -638,6 +657,7 @@ function submitOrderV2(){
     delivery:delivery,total:total,notes:notes
   })}).then(function(r){return r.json();}).then(function(d){
     if(d.ok){toast('✅ تم إرسال الطلب بنجاح! سنتصل بك قريبًا.');
+      fbq('track', 'Purchase', {value: parseFloat(total.replace(/[^0-9]/g,'')), currency: 'DZD'});
       document.getElementById('name').value='';document.getElementById('phone').value='';
       document.getElementById('commune').value='';document.getElementById('notes').value='';
       document.getElementById('qty').value='1';document.getElementById('delivery').selectedIndex=0;
